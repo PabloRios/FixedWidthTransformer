@@ -1,0 +1,20 @@
+{
+	"name": "PabloRios/FixedWidthTransformer",
+    "description": "A parser class for handling fixed length text files in PHP",
+    "keywords": ["php", "text", "parser", "fixed length"],
+    "homepage": "https://github.com/pablorios/fixed-width-transformer",
+	"license": "",
+    "authors": [
+        {
+            "name": "Pablo Rios",
+            "homepage": "https://github.com/pablorios"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"PabloRios\\FixedWidthTransformer\\": "src"}
+    },
+	"version": "dev-master",
+    "require": {
+		"php": ">=8.0.0"
+    }
+}
