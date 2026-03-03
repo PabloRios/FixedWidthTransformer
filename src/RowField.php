@@ -21,7 +21,7 @@ class RowField
         $this->transformer = $transformer;
     }
 
-    public function getFormatData()
+    public function getFormatedData()
     {
         return $this->transformer->transform($this->getRawData());
     }

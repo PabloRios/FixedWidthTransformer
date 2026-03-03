@@ -34,10 +34,10 @@ class FixedWidthTransformer implements \Iterator, \Countable
             $field->setRawData(substr($row, $field->getPosition(), $field->getLength()));
             if ($this->useEncapsulation) {
                 $method = "set" . $field->getName();
-                $class->$method($field->getFormatData());
+                $class->$method($field->getFormatedData());
             } else {
                 $property = $field->getName();
-                $class->$property = $field->getFormatData();
+                $class->$property = $field->getFormatedData();
             }
         }
         return $class;
