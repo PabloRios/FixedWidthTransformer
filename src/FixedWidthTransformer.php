@@ -13,7 +13,7 @@ class FixedWidthTransformer implements \Iterator, \Countable
 
     public function __construct(array $input, Object $class, $useEncapsulation = True)
     {
-        if(!array_is_list($input)){
+        if (!array_is_list($input)) {
             throw new \Exception("input must be array list", 1);
         }
         $this->input = $input;
@@ -21,7 +21,8 @@ class FixedWidthTransformer implements \Iterator, \Countable
         $this->useEncapsulation = $useEncapsulation;
     }
 
-    public function setDefinition($definition){
+    public function setDefinition($definition)
+    {
         $this->definition = $definition;
     }
 
@@ -31,10 +32,10 @@ class FixedWidthTransformer implements \Iterator, \Countable
         $offset = 0;
         foreach ($this->definition->getfields() as $field) {
             $field->setRawData(substr($row, $field->getPosition(), $field->getLength()));
-            if($this->useEncapsulation){
+            if ($this->useEncapsulation) {
                 $method = "set" . $field->getName();
                 $class->$method($field->getFormatData());
-            }else{
+            } else {
                 $property = $field->getName();
                 $class->$property = $field->getFormatData();
             }
@@ -52,19 +53,23 @@ class FixedWidthTransformer implements \Iterator, \Countable
         return count($this->input);
     }
 
-    public function key(): int {
+    public function key(): int
+    {
         return $this->position;
     }
 
-    public function next(): void {
+    public function next(): void
+    {
         ++$this->position;
     }
 
-    public function rewind(): void {
+    public function rewind(): void
+    {
         $this->position = 0;
     }
 
-    public function valid(): bool {
+    public function valid(): bool
+    {
         return isset($this->input[$this->position]);
     }
 }

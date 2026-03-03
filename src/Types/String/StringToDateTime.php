@@ -4,10 +4,14 @@ namespace PabloRios\FixedWidthTransformer\Types\String;
 
 class StringToDateTime implements IStringType
 {
-    const DATEFORMAT = 'dmY';
+    public function __construct(
+        protected string $format = 'dmY'
+        ) {}
 
-    public static function transform(String $string, String $format = self::DATEFORMAT): \DateTime
+    public function transform(String $string): \DateTime|bool
     {
-        return \DateTime::createFromFormat($format, $string);
+        $datetime = \DateTime::createFromFormat($this->format, $string);
+
+        return $datetime;
     }
 }

@@ -31,7 +31,8 @@ class Row
         return $this->fields;
     }
 
-    public function getLength(){
+    public function getLength()
+    {
         if ($this->length == 0) {
             $this->calculateLength();
         }

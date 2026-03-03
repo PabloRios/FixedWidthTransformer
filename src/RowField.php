@@ -1,6 +1,7 @@
 <?php
 
 namespace PabloRios\FixedWidthTransformer;
+
 use PabloRios\FixedWidthTransformer\Types\IType;
 use PabloRios\FixedWidthTransformer\Types\String\StringToString;
 
@@ -12,15 +13,17 @@ class RowField
     private $transformer;
     private $rawData;
 
-    public function __construct(String $name, Int $length, Int $position = null, $transformer = StringToString::class){
+    public function __construct(String $name, Int $length, Int $position = null, $transformer = new StringToString())
+    {
         $this->name = $name;
         $this->position = $position;
         $this->length = $length;
         $this->transformer = $transformer;
     }
 
-    public function getFormatData(){
-        return call_user_func($this->getTransformer() . '::transform', $this->getRawData());
+    public function getFormatData()
+    {
+        return $this->transformer->transform($this->getRawData());
     }
 
     /**

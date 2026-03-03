@@ -6,5 +6,5 @@ use PabloRios\FixedWidthTransformer\Types\IType;
 
 interface IStringType extends IType
 {
-    public static function transform(String $string): Mixed;
+    public function transform(String $string): Mixed;
 }
