@@ -6,12 +6,12 @@ class FixedWidthTransformer implements \Iterator, \Countable
 {
     protected int $position = 0;
     protected array $input;
-    protected object $class;
+    protected string $class;
     protected Row $definition;
     protected ?int $lineLength = null;
     protected bool $useEncapsulation;
 
-    public function __construct(array $input, Object $class, $useEncapsulation = True)
+    public function __construct(array $input, String $class, $useEncapsulation = True)
     {
         if (!array_is_list($input)) {
             throw new \Exception("input must be array list", 1);
